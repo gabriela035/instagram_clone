@@ -7,24 +7,94 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:instagram_clone/features/presentation/page/home/home_page.dart';
+import 'package:instagram_clone/features/presentation/page/main_screen/main_screen.dart';
+import 'package:instagram_clone/features/presentation/page/post/upload_post_page.dart';
+import 'package:instagram_clone/features/presentation/page/profile/profile_page.dart';
+import 'package:instagram_clone/features/presentation/page/reels/reels_page.dart';
+import 'package:instagram_clone/features/presentation/page/search/search_page.dart';
+import 'package:instagram_clone/features/presentation/widgets/form_container_widget.dart';
 
 import 'package:instagram_clone/main.dart';
+import 'package:line_icons/line_icons.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Test text box widget', (WidgetTester tester) async {
+    // Construieste widget-ul de text box
+    await tester.pumpWidget(MaterialApp(
+      home: Scaffold(
+        body: Form(
+          child: FormContainerWidget(
+            hintText: "Email",
+          ),
+        ),
+      ),
+    ));
+    //emulăm o apăsare pe widget, pentru a pune cursorul în interiorul text box-ului.
+    await tester.tap(find.byType(TextFormField));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // se introduce textul
+    await tester.enterText(find.byType(TextFormField), 'example@mail.com');
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // se verifica
+    expect(find.text('example@mail.com'), findsOneWidget);
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Test navigation between pages', (WidgetTester tester) async {
+    // Construim widget-ul
+    await tester.pumpWidget(MaterialApp(home: MainScreen()));
+
+    // Verificăm dacă se afișează pagina principală
+    expect(find.byType(HomePage), findsOneWidget);
+    expect(find.byType(SearchPage), findsNothing);
+    expect(find.byType(UploadPostPage), findsNothing);
+    expect(find.byType(ReelsPage), findsNothing);
+    expect(find.byType(ProfilePage), findsNothing);
+
+    // Navigăm la pagina de căutare
+    await tester.tap(find.byIcon(LineIcons.search));
+    await tester.pumpAndSettle();
+
+    // Verificăm dacă se afișează pagina de căutare
+    expect(find.byType(HomePage), findsNothing);
+    expect(find.byType(SearchPage), findsOneWidget);
+    expect(find.byType(UploadPostPage), findsNothing);
+    expect(find.byType(ReelsPage), findsNothing);
+    expect(find.byType(ProfilePage), findsNothing);
+
+    // Navigăm la pagina de încărcare a postării
+    await tester.tap(find.byIcon(LineIcons.plusSquare));
+    await tester.pumpAndSettle();
+
+    // Verificăm dacă se afișează pagina de încărcare a postării
+    expect(find.byType(HomePage), findsNothing);
+    expect(find.byType(SearchPage), findsNothing);
+    expect(find.byType(UploadPostPage), findsOneWidget);
+    expect(find.byType(ReelsPage), findsNothing);
+    expect(find.byType(ProfilePage), findsNothing);
+
+    // Navigăm la pagina Reels
+    await tester.tap(find.byIcon(LineIcons.playCircleAlt));
+    await tester.pumpAndSettle();
+
+    // Verificăm dacă se afișează pagina Reels
+    expect(find.byType(HomePage), findsNothing);
+    expect(find.byType(SearchPage), findsNothing);
+    expect(find.byType(UploadPostPage), findsNothing);
+    expect(find.byType(ReelsPage), findsOneWidget);
+    expect(find.byType(ProfilePage), findsNothing);
+
+    // Navigăm la pagina profilului
+    await tester.tap(find.byIcon(LineIcons.userCircle));
+    await tester.pumpAndSettle();
+
+    // Verificăm dacă se afișează pagina profilului
+    expect(find.byType(HomePage), findsNothing);
+    expect(find.byType(SearchPage), findsNothing);
+    expect(find.byType(UploadPostPage), findsNothing);
+    expect(find.byType(ReelsPage), findsNothing);
+    expect(find.byType(ProfilePage), findsOneWidget);
   });
 }
