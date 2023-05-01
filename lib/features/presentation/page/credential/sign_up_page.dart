@@ -79,7 +79,13 @@ class SignUpPage extends StatelessWidget {
               color: darkGreyColor,
               text: "Sign Up",
               onPressed: () {},
-              onTapListener: () {},
+              onTapListener: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  (Route<dynamic> route) => false,
+                );
+              },
               /*  onTapListener: () {
                 //   Navigator.push(context,
                 //    MaterialPageRoute(builder: (context) => MainScreen()));

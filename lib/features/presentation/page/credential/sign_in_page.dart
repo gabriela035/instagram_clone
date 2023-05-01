@@ -43,8 +43,13 @@ class SignInPage extends StatelessWidget {
               color: darkGreyColor,
               text: "Sign In",
               onTapListener: () {
-                Navigator.of(context).pushReplacement(
+                // Navigator.of(context).pushReplacement(
+                //   MaterialPageRoute(builder: (context) => MainScreen()),
+                // );
+                Navigator.pushAndRemoveUntil(
+                  context,
                   MaterialPageRoute(builder: (context) => MainScreen()),
+                  (Route<dynamic> route) => false,
                 );
               },
               onPressed: () {},
