@@ -43,9 +43,6 @@ class SignInPage extends StatelessWidget {
               color: darkGreyColor,
               text: "Sign In",
               onTapListener: () {
-                // Navigator.of(context).pushReplacement(
-                //   MaterialPageRoute(builder: (context) => MainScreen()),
-                // );
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => MainScreen()),
@@ -71,8 +68,6 @@ class SignInPage extends StatelessWidget {
                 InkWell(
                   //il face clickable
                   onTap: () {
-                    // Navigator.pushNamedAndRemoveUntil(
-                    // context, PageConst.signUpPage, (route) => false);
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(builder: (context) => SignUpPage()),
