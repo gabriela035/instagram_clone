@@ -8,10 +8,11 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
-        title: Text("Edit Profile"),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text("Edit Profile",
+            style: TextStyle(color: Theme.of(context).primaryColor)),
         leading: GestureDetector(
             onTap: () => Navigator.pop(context),
             child: Icon(

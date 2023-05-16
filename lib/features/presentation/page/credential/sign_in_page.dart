@@ -13,7 +13,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
@@ -26,7 +26,7 @@ class SignInPage extends StatelessWidget {
             Center(
               child: SvgPicture.asset(
                 "assets/ic_instagram.svg",
-                color: primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             sizeVer(30), //spatiere
@@ -56,14 +56,14 @@ class SignInPage extends StatelessWidget {
               flex: 2,
             ),
             Divider(
-              color: secondaryColor,
+              color: Color.fromARGB(255, 62, 62, 62),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Don't have an account? ",
-                  style: TextStyle(color: primaryColor),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
                 InkWell(
                   //il face clickable
@@ -76,7 +76,8 @@ class SignInPage extends StatelessWidget {
                   child: Text(
                     "Sign Up.",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: primaryColor),
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor),
                   ),
                 ),
               ],

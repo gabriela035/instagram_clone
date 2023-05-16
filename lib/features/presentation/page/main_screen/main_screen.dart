@@ -50,28 +50,33 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.home, color: primaryColor),
+            icon:
+                Icon(LineIcons.home, color: Theme.of(context).iconTheme.color),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.search, color: primaryColor),
+            icon: Icon(LineIcons.search,
+                color: Theme.of(context).iconTheme.color),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.plusSquare, color: primaryColor),
+            icon: Icon(LineIcons.plusSquare,
+                color: Theme.of(context).iconTheme.color),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.playCircleAlt, color: primaryColor),
+            icon: Icon(LineIcons.playCircleAlt,
+                color: Theme.of(context).iconTheme.color),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(LineIcons.userCircle, color: primaryColor),
+            icon: Icon(LineIcons.userCircle,
+                color: Theme.of(context).iconTheme.color),
             label: "",
           ),
         ],

@@ -17,12 +17,12 @@ class SearchWidget extends StatelessWidget {
       ),
       child: TextFormField(
         controller: controller,
-        style: TextStyle(color: primaryColor),
+        style: TextStyle(color: Theme.of(context).primaryColor),
         decoration: InputDecoration(
             border: InputBorder.none,
             prefixIcon: Icon(
               Icons.search,
-              color: primaryColor,
+              color: Theme.of(context).iconTheme.color,
             ),
             hintText: "Search",
             hintStyle: TextStyle(color: secondaryColor, fontSize: 15)),
