@@ -12,7 +12,7 @@ class BottomModalSheet {
         return Container(
           height: 190,
           decoration: BoxDecoration(
-            color: backGroundColor.withOpacity(.8),
+            color: Theme.of(context).scaffoldBackgroundColor.withOpacity(.8),
           ),
           child: SingleChildScrollView(
             child: Container(
@@ -27,7 +27,7 @@ class BottomModalSheet {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: primaryColor),
+                          color: Theme.of(context).primaryColor),
                     ),
                   ),
                   SizedBox(
@@ -47,14 +47,14 @@ class BottomModalSheet {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EditProfilePage()));
+                                builder: (context) => const EditProfilePage()));
                       },
                       child: Text(
                         "Edit Profile",
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ),
@@ -78,7 +78,7 @@ class BottomModalSheet {
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ),
@@ -103,7 +103,7 @@ class BottomModalSheet {
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ), //
                   ),

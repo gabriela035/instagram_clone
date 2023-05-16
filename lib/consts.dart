@@ -5,7 +5,7 @@ var backGroundColor = Color.fromRGBO(0, 0, 0, 1.0);
 var blueColor = Color.fromRGBO(0, 149, 246, 1);
 var primaryColor = Colors.white;
 var secondaryColor = Color.fromARGB(255, 150, 146, 146);
-var darkGreyColor = Color.fromRGBO(97, 97, 97, 1);
+var darkGreyColor = Color.fromRGBO(61, 61, 61, 1);
 var greenyColor = Color.fromARGB(255, 51, 109, 65);
 
 Widget sizeVer(double height) {

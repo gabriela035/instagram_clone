@@ -7,7 +7,7 @@ class UploadPostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backGroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Center(
           child: Container(
             width: 150,
@@ -17,7 +17,7 @@ class UploadPostPage extends StatelessWidget {
             child: Center(
               child: Icon(
                 Icons.upload,
-                color: primaryColor,
+                color: Theme.of(context).primaryColor,
                 size: 40,
               ),
             ),

@@ -11,12 +11,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: SvgPicture.asset(
           "assets/ic_instagram.svg",
-          color: primaryColor,
+          color: Theme.of(context).primaryColor,
           height: 32,
         ),
         actions: [
@@ -26,13 +26,13 @@ class HomePage extends StatelessWidget {
               children: [
                 Icon(
                   LineIcons.heart,
-                  color: primaryColor,
+                  color: Theme.of(context).iconTheme.color,
                   size: 28.0,
                 ),
                 SizedBox(width: 13.0),
                 Icon(
                   LineIcons.facebookMessenger,
-                  color: primaryColor,
+                  color: Theme.of(context).iconTheme.color,
                   size: 28.0,
                 ),
               ],
@@ -73,13 +73,14 @@ class HomePage extends StatelessWidget {
                     Text(
                       "Username",
                       style: TextStyle(
-                          color: primaryColor, fontWeight: FontWeight.bold),
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
                 Icon(
                   Icons.more_vert,
-                  color: primaryColor,
+                  color: Theme.of(context).iconTheme.color,
                 )
               ],
             ),
@@ -97,31 +98,32 @@ class HomePage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.favorite,
-                      color: primaryColor,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                     sizeHor(10),
                     Icon(
                       Icons.comment,
-                      color: primaryColor,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                     sizeHor(10),
                     Icon(
                       Icons.send,
-                      color: primaryColor,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                   ],
                 ),
                 Icon(
                   Icons.bookmark_border,
-                  color: primaryColor,
+                  color: Theme.of(context).iconTheme.color,
                 )
               ],
             ),
             sizeVer(10),
             Text(
               "5 likes",
-              style:
-                  TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold),
             ),
             sizeVer(10),
             Row(
@@ -129,12 +131,13 @@ class HomePage extends StatelessWidget {
                 Text(
                   "Username",
                   style: TextStyle(
-                      color: primaryColor, fontWeight: FontWeight.bold),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold),
                 ),
                 sizeHor(10),
                 Text(
                   "some description",
-                  style: TextStyle(color: primaryColor),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
               ],
             ),

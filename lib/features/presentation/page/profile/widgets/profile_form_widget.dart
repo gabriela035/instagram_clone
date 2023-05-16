@@ -14,7 +14,7 @@ class ProfileFormWidget extends StatelessWidget {
       children: [
         Text(
           "$title",
-          style: TextStyle(color: primaryColor, fontSize: 16),
+          style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 16),
         ),
         sizeVer(10),
         TextFormField(
