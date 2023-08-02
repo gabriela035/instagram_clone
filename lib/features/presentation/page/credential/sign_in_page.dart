@@ -20,8 +20,8 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
-              child: Container(),
               flex: 2,
+              child: Container(),
             ),
             Center(
               child: SvgPicture.asset(
@@ -30,11 +30,11 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             sizeVer(30), //spatiere
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Email",
             ),
             sizeVer(15),
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Password",
               isPasswordField: true,
             ),
@@ -45,7 +45,7 @@ class SignInPage extends StatelessWidget {
               onTapListener: () {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  MaterialPageRoute(builder: (context) =>const MainScreen()),
                   (Route<dynamic> route) => false,
                 );
               },
@@ -55,7 +55,7 @@ class SignInPage extends StatelessWidget {
               child: Container(),
               flex: 2,
             ),
-            Divider(
+            const Divider(
               color: Color.fromARGB(255, 62, 62, 62),
             ),
             Row(

@@ -14,7 +14,8 @@ class FormContainerWidget extends StatefulWidget {
   final TextInputType? inputType;
 
   const FormContainerWidget(
-      {this.controller,
+      {super.key,
+      this.controller,
       this.isPasswordField,
       this.fieldKey,
       this.hintText,
@@ -40,7 +41,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         color: secondaryColor.withOpacity(.35),
         borderRadius: BorderRadius.circular(3),
       ),
-      child: new TextFormField(
+      child: TextFormField(
         style: TextStyle(color: primaryColor),
         controller: widget.controller,
         keyboardType: widget.inputType,
@@ -49,12 +50,12 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
         onSaved: widget.onSaved,
         validator: widget.validator,
         onFieldSubmitted: widget.onFieldSubmitted,
-        decoration: new InputDecoration(
+        decoration: InputDecoration(
           border: InputBorder.none,
           filled: true,
           hintText: widget.hintText,
           hintStyle: TextStyle(color: secondaryColor),
-          suffixIcon: new GestureDetector(
+          suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
                 _obscureText = !_obscureText;
@@ -65,7 +66,7 @@ class _FormContainerWidgetState extends State<FormContainerWidget> {
                     _obscureText ? Icons.visibility_off : Icons.visibility,
                     color: _obscureText == false ? blueColor : secondaryColor,
                   )
-                : Text(""),
+                : const Text(""),
           ),
         ),
       ),

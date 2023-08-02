@@ -33,12 +33,10 @@ dependencies:
     #state management
   flutter_bloc: ^8.0.1
   line_icons: ^2.0.0
-  flutter_localizations:
-    sdk: flutter
+  
   
   equatable: ^2.0.3
-  flutter_icons: ^1.1.0  #primim iconite
-  provider: ^6.0.5
+  #flutter_icons: ^1.1.0  #primim iconite
   
   #Firebase
   cloud_firestore: ^4.5.2
@@ -63,15 +61,11 @@ dependencies:
 
 
 
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   toast: ^0.3.0
-  flutter_gifimage: ^1.0.1
-  #flutter_gifimage: ^1.0.1
-
+  
 
 
 dev_dependencies:

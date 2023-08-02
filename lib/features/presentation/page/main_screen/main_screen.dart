@@ -4,11 +4,9 @@ import 'package:instagram_clone/features/presentation/page/post/upload_post_page
 import 'package:instagram_clone/features/presentation/page/profile/profile_page.dart';
 import 'package:instagram_clone/features/presentation/page/reels/reels_page.dart';
 import 'package:instagram_clone/features/presentation/page/search/search_page.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 //import 'package:flutter_icons/flutter_icons.dart';
 
-import '../../../../consts.dart';
 import '../home/home_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,7 +17,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
+  var _currentIndex = 0;
 
   late PageController pageController;
 
@@ -84,14 +82,14 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: PageView(
         controller: pageController,
-        children: [
+        onPageChanged: onPageChanged,
+        children: const [
           HomePage(),
           SearchPage(),
           UploadPostPage(),
           ReelsPage(),
           ProfilePage(),
         ],
-        onPageChanged: onPageChanged,
       ),
     );
   }

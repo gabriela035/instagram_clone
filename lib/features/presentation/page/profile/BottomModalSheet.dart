@@ -16,7 +16,7 @@ class BottomModalSheet {
           ),
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -30,14 +30,14 @@ class BottomModalSheet {
                           color: Theme.of(context).primaryColor),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Divider(
                     thickness: 1,
                     color: secondaryColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Padding(
@@ -96,7 +96,7 @@ class BottomModalSheet {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignInPage()));
+                                builder: (context) => const SignInPage()));
                       }, //
                       child: Text(
                         "Logout",

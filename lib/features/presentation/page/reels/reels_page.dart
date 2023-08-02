@@ -13,7 +13,7 @@ class ReelsPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/Page_Under_Construction.jpg"),
                 fit: BoxFit.fitWidth,

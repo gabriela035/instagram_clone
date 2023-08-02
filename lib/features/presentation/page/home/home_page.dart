@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone/consts.dart';
 import 'package:instagram_clone/features/presentation/page/story/story_aspect.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,7 +28,7 @@ class HomePage extends StatelessWidget {
                   color: Theme.of(context).iconTheme.color,
                   size: 28.0,
                 ),
-                SizedBox(width: 13.0),
+                const SizedBox(width: 13.0),
                 Icon(
                   LineIcons.facebookMessenger,
                   color: Theme.of(context).iconTheme.color,

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/features/presentation/page/credential/sign_in_page.dart';
-import 'package:instagram_clone/features/presentation/page/profile/theme.dart';
 import 'BottomModalSheet.dart';
 
 import '../../../../consts.dart';
-import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -122,10 +119,11 @@ class ProfilePage extends StatelessWidget {
                     itemCount: 32,
                     physics: ScrollPhysics(),
                     shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 5),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 5),
                     itemBuilder: (context, index) {
                       return Container(
                         width: 100,
