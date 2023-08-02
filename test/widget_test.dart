@@ -15,13 +15,12 @@ import 'package:instagram_clone/features/presentation/page/reels/reels_page.dart
 import 'package:instagram_clone/features/presentation/page/search/search_page.dart';
 import 'package:instagram_clone/features/presentation/widgets/form_container_widget.dart';
 
-import 'package:instagram_clone/main.dart';
 import 'package:line_icons/line_icons.dart';
 
 void main() {
   testWidgets('Test text box widget', (WidgetTester tester) async {
     // Construieste widget-ul de text box
-    await tester.pumpWidget(MaterialApp(
+    await tester.pumpWidget(const MaterialApp(
       home: Scaffold(
         body: Form(
           child: FormContainerWidget(
@@ -44,7 +43,7 @@ void main() {
 
   testWidgets('Test navigation between pages', (WidgetTester tester) async {
     // Construim widget-ul
-    await tester.pumpWidget(MaterialApp(home: MainScreen()));
+    await tester.pumpWidget(const MaterialApp(home: MainScreen()));
 
     // Verificăm dacă se afișează pagina principală
     expect(find.byType(HomePage), findsOneWidget);

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/features/presentation/page/credential/sign_in_page.dart';
-import 'package:instagram_clone/features/presentation/page/profile/theme.dart';
 import 'BottomModalSheet.dart';
 
 import '../../../../consts.dart';
-import 'edit_profile_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -12,12 +9,12 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backGroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: backGroundColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Text(
             "Username",
-            style: TextStyle(color: primaryColor),
+            style: TextStyle(color: Theme.of(context).primaryColor),
           ),
           actions: [
             Padding(
@@ -28,7 +25,7 @@ class ProfilePage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.menu,
-                  color: primaryColor,
+                  color: Theme.of(context).iconTheme.color,
                 ),
               ),
             )
@@ -56,13 +53,14 @@ class ProfilePage extends StatelessWidget {
                             Text(
                               "0",
                               style: TextStyle(
-                                  color: primaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold),
                             ),
                             sizeVer(8),
                             Text(
                               "Posts",
-                              style: TextStyle(color: primaryColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColor),
                             )
                           ],
                         ),
@@ -72,13 +70,14 @@ class ProfilePage extends StatelessWidget {
                             Text(
                               "55",
                               style: TextStyle(
-                                  color: primaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold),
                             ),
                             sizeVer(8),
                             Text(
                               "Followers",
-                              style: TextStyle(color: primaryColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColor),
                             )
                           ],
                         ),
@@ -88,13 +87,14 @@ class ProfilePage extends StatelessWidget {
                             Text(
                               "123",
                               style: TextStyle(
-                                  color: primaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold),
                             ),
                             sizeVer(8),
                             Text(
                               "Following",
-                              style: TextStyle(color: primaryColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColor),
                             )
                           ],
                         )
@@ -106,22 +106,24 @@ class ProfilePage extends StatelessWidget {
                 Text(
                   "Name",
                   style: TextStyle(
-                      color: primaryColor, fontWeight: FontWeight.bold),
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold),
                 ),
                 sizeVer(10),
                 Text(
                   "-bio-",
-                  style: TextStyle(color: primaryColor),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
                 sizeVer(10),
                 GridView.builder(
                     itemCount: 32,
                     physics: ScrollPhysics(),
                     shrinkWrap: true,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 5,
-                        mainAxisSpacing: 5),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 5),
                     itemBuilder: (context, index) {
                       return Container(
                         width: 100,

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/consts.dart';
-import 'package:instagram_clone/features/presentation/page/profile/theme.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/theme_provider.dart';
 
 class ThemePage extends StatefulWidget {
+  const ThemePage({super.key});
+
   @override
   _ThemePageState createState() => _ThemePageState();
 }
@@ -15,153 +19,106 @@ class _ThemePageState extends State<ThemePage> {
 }
 
 class ThemeEdit extends StatefulWidget {
+  const ThemeEdit({super.key});
+
   @override
   _ThemeEditState createState() => _ThemeEditState();
 }
 
 class _ThemeEditState extends State<ThemeEdit> {
   bool _systemSwitch = true;
-  bool _lightSwitch = false;
-  bool _darkSwitch = false;
-  bool _springSwitch = false;
+  bool _lightDarkModeEnabled = false;
 
   ThemeMode? _themeMode;
 
+  //get actions => null;
+  @override
+  void initState() {
+    super.initState();
+    _themeMode = ThemeMode.system; // Set initial theme mode to system
+    _systemSwitch = true;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    _themeMode = themeProvider.themeMode;
+    _lightDarkModeEnabled = _themeMode != ThemeMode.system;
     return MaterialApp(
-      theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      themeMode: _themeMode,
+      theme: MyThemes.lightTheme,
+      darkTheme: MyThemes.darkTheme,
+      themeMode: themeProvider.themeMode,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          backgroundColor: backGroundColor,
-          appBar: AppBar(
-            backgroundColor: backGroundColor,
-            title: Text(
-              "Themes",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: primaryColor),
-            ),
-            leading: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Icon(
-                  Icons.close,
-                  size: 32,
-                  color: primaryColor,
-                )),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          title: Text(
+            "Themes",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor),
           ),
-          body: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("System Mode",
-                          style: TextStyle(color: primaryColor))),
-                  Switch(
+          leading: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Icon(
+                Icons.close,
+                size: 32,
+                color: Theme.of(context).iconTheme.color,
+              )),
+        ),
+        body: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text("System Mode",
+                        style:
+                            TextStyle(color: Theme.of(context).primaryColor))),
+                Switch(
                     value: _systemSwitch,
                     activeColor: greenyColor,
                     onChanged: (newSwitchValue) {
-                      _systemSwitch
-                          ? print("Blocked")
-                          : setState(() {
-                              _systemSwitch = true;
-                              _lightSwitch = false;
-                              _darkSwitch = false;
-                              _springSwitch = false;
-                              _themeMode = null;
-                            });
-                    },
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Dark Mode",
-                          style: TextStyle(color: primaryColor))),
-                  Switch(
-                    value: _darkSwitch,
-                    activeColor: greenyColor,
-                    onChanged: (newSwitchValue) {
-                      _darkSwitch
-                          ? print("Blocked")
-                          : setState(() {
-                              _systemSwitch = false;
-                              _lightSwitch = false;
-                              _darkSwitch = true;
-                              _springSwitch = false;
-                              backGroundColor = Color.fromRGBO(0, 0, 0, 1.0);
-                              primaryColor = Colors.white;
-                              secondaryColor = Colors.grey;
-                              darkGreyColor = Color.fromRGBO(97, 97, 97, 1);
-                            });
-                    },
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Light Mode ",
-                          style: TextStyle(color: primaryColor))),
-                  Switch(
-                    value: _lightSwitch,
-                    activeColor: greenyColor,
-                    onChanged: (newSwitchValue) {
-                      _lightSwitch
-                          ? print("Blocked")
-                          : setState(() {
-                              _systemSwitch = false;
-                              _lightSwitch = true;
-                              _darkSwitch = false;
-                              _springSwitch = false;
-                              backGroundColor = Colors.white;
-                              primaryColor = Color.fromRGBO(0, 0, 0, 1.0);
-                              secondaryColor = Colors.grey;
-                              darkGreyColor = Color.fromRGBO(97, 97, 97, 1);
-                            });
-                    },
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text("Spring Mode ",
-                          style: TextStyle(color: primaryColor))),
-                  Switch(
-                    value: _springSwitch,
-                    activeColor: greenyColor,
-                    onChanged: (newSwitchValue) {
-                      _springSwitch
-                          ? print("Blocked")
-                          : setState(() {
-                              _systemSwitch = false;
-                              _lightSwitch = false;
-                              _darkSwitch = false;
-                              _springSwitch = true;
-                              backGroundColor =
-                                  Color.fromARGB(255, 76, 116, 76);
-                              primaryColor = Color.fromRGBO(212, 201, 212, 1);
-                              secondaryColor =
-                                  Color.fromARGB(255, 180, 127, 187);
-                              darkGreyColor = Color.fromRGBO(133, 173, 149, 1);
-                            });
-                    },
-                  )
-                ],
-              ),
-            ],
-          )),
+                      setState(() {
+                        _systemSwitch = true;
+                        _themeMode = ThemeMode.system;
+                        themeProvider.toggleTheme(
+                            false); // Set theme to light when system mode is enabled
+                      });
+                    })
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text("Light/Dark Mode",
+                        style:
+                            TextStyle(color: Theme.of(context).primaryColor))),
+                // actions[ChangeThemeButtonWidget()],
+                // ],
+                Switch.adaptive(
+                  value: _lightDarkModeEnabled && _themeMode == ThemeMode.dark,
+                  onChanged: (value) {
+                    setState(
+                      () {
+                        _systemSwitch = false;
+                        _themeMode = _lightDarkModeEnabled
+                            ? (value ? ThemeMode.dark : ThemeMode.light)
+                            : ThemeMode.system;
+                        themeProvider.toggleTheme(_themeMode == ThemeMode.dark);
+                      },
+                    );
+                  },
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

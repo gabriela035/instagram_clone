@@ -13,20 +13,20 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
-              child: Container(),
               flex: 2,
+              child: Container(),
             ),
             Center(
               child: SvgPicture.asset(
                 "assets/ic_instagram.svg",
-                color: primaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             sizeVer(15),
@@ -36,9 +36,6 @@ class SignUpPage extends StatelessWidget {
                   Container(
                     width: 60,
                     height: 60,
-                    /*   child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: profileWidget(image: _image))),*/
                     decoration:
                         BoxDecoration(borderRadius: BorderRadius.circular(30)),
                     child: Image.asset("assets/profile_default.png"),
@@ -48,7 +45,7 @@ class SignUpPage extends StatelessWidget {
                     bottom: 5,
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.upload,
                         color: Color.fromARGB(219, 53, 53, 53),
                       ),
@@ -58,20 +55,20 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             sizeVer(30), //spatiere
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Username",
             ),
             sizeVer(15),
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Email",
             ),
             sizeVer(15),
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Password",
               isPasswordField: true,
             ),
             sizeVer(15),
-            FormContainerWidget(
+            const FormContainerWidget(
               hintText: "Bio",
             ),
             sizeVer(15),
@@ -86,37 +83,35 @@ class SignUpPage extends StatelessWidget {
                   (Route<dynamic> route) => false,
                 );
               },
-              /*  onTapListener: () {
-                //   Navigator.push(context,
-                //    MaterialPageRoute(builder: (context) => MainScreen()));
-              },*/
             ),
             Flexible(
-              child: Container(),
               flex: 2,
+              child: Container(),
             ),
-            Divider(
-              color: secondaryColor,
+            const Divider(
+              color: Color.fromARGB(255, 91, 90, 90),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Already have an account? ",
-                  style: TextStyle(color: primaryColor),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
                 InkWell(
-                  //il face clickable
+                  //it will make it 'clickable'
                   onTap: () {
                     Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => SignInPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const SignInPage()),
                         (route) => false);
                   },
                   child: Text(
                     "Sign In.",
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: primaryColor),
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor),
                   ),
                 ),
               ],

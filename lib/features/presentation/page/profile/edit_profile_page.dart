@@ -8,17 +8,19 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
-        title: Text("Edit Profile"),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Text("Edit Profile",
+            style: TextStyle(color: Theme.of(context).primaryColor)),
         leading: GestureDetector(
-            onTap: () => Navigator.pop(context),
-            child: Icon(
-              Icons.close,
-              color: darkGreyColor,
-              size: 32,
-            )),
+          onTap: () => Navigator.pop(context),
+          child: Icon(
+            Icons.close,
+            color: darkGreyColor,
+            size: 32,
+          ),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
@@ -56,13 +58,13 @@ class EditProfilePage extends StatelessWidget {
                 ),
               ),
               sizeVer(15),
-              ProfileFormWidget(title: "Name"),
+              const ProfileFormWidget(title: "Name"),
               sizeVer(15),
-              ProfileFormWidget(title: "Username"),
+              const ProfileFormWidget(title: "Username"),
               sizeVer(15),
-              ProfileFormWidget(title: "Website"),
+              const ProfileFormWidget(title: "Website"),
               sizeVer(15),
-              ProfileFormWidget(title: "Bio"),
+              const ProfileFormWidget(title: "Bio"),
             ],
           ),
         ),

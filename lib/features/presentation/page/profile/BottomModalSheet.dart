@@ -12,11 +12,11 @@ class BottomModalSheet {
         return Container(
           height: 190,
           decoration: BoxDecoration(
-            color: backGroundColor.withOpacity(.8),
+            color: Theme.of(context).scaffoldBackgroundColor.withOpacity(.8),
           ),
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -27,17 +27,17 @@ class BottomModalSheet {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
-                          color: primaryColor),
+                          color: Theme.of(context).primaryColor),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Divider(
                     thickness: 1,
                     color: secondaryColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Padding(
@@ -47,14 +47,14 @@ class BottomModalSheet {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EditProfilePage()));
+                                builder: (context) => const EditProfilePage()));
                       },
                       child: Text(
                         "Edit Profile",
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ),
@@ -78,7 +78,7 @@ class BottomModalSheet {
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ),
@@ -96,14 +96,14 @@ class BottomModalSheet {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignInPage()));
+                                builder: (context) => const SignInPage()));
                       }, //
                       child: Text(
                         "Logout",
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
-                            color: primaryColor),
+                            color: Theme.of(context).primaryColor),
                       ),
                     ), //
                   ),
